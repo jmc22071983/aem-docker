@@ -10,9 +10,6 @@ services:
             - '/aem632-author/logs:/crx-quickstart/logs'
         deploy:
             replicas: 1
-            placement:
-                constraints: 
-                    - node.hostname == aem
         networks:
             - network
     aem632-publish:
@@ -25,9 +22,6 @@ services:
             - '/aem632-publish/logs:/crx-quickstart/logs'
         deploy:
             replicas: 1
-            placement:
-                constraints: 
-                    - node.hostname == aem
         networks:
             - network
     apache-dispatcher:
@@ -45,9 +39,6 @@ services:
             - '/aem-dispatcher/dispatcher_cache:/etc/httpd/dispatcher_cache'
         deploy:
             replicas: 1
-            placement:
-                constraints: 
-                    - node.hostname == aem
         networks:
             - network 
 volumes:
