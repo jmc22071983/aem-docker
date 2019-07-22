@@ -1,0 +1,48 @@
+version: '3'
+services:
+    aem632-author:
+        image: jmc22071983/aem632-author:0.0.4-SNAPSHOT
+        ports:
+            - '4502:4502'
+            - '8000:8000'
+        environment:  
+           RUNMODE: 'local'
+        volumes:
+            - 'aem632-author:/crx-quickstart/repository'
+            - '/aem632-author/logs:/crx-quickstart/logs'
+        networks:
+            - network
+    aem632-publish:
+        image: jmc22071983/aem632-publish:0.0.2-SNAPSHOT
+        ports:
+            - '4503:4503'
+            - '8001:8001'
+        environment:  
+           RUNMODE: 'local'
+        volumes:
+            - 'aem632-publish:/crx-quickstart/repository'
+            - '/aem632-publish/logs:/crx-quickstart/logs'
+        networks:
+            - network
+    apache-dispatcher:
+        image: jmc22071983/dispatcher:0.0.1
+        depends_on:
+            - aem632-publish
+        ports:
+            - '80:80'
+            - '443:443'
+        environment:  
+            AEM_HOST: 'aem632-publish'
+            AEM_PORT: '4503'
+        volumes:
+            - 'aem-dispatcher:/etc/httpd/dispatcher_cache'
+            - '/aem-dispatcher/logs:/etc/httpd/logs'
+        networks:
+            - network 
+volumes:
+    aem632-author:
+    aem632-publish:
+    aem-dispatcher:
+networks:
+    network:
+        driver: overlay
