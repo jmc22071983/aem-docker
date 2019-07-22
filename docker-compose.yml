@@ -5,6 +5,8 @@ services:
         ports:
             - '4502:4502'
             - '8000:8000'
+        environment:  
+           RUNMODE: 'local'
         volumes:
             - 'aem632-author:/crx-quickstart/repository'
             - '/aem632-author/logs:/crx-quickstart/logs'
@@ -15,6 +17,8 @@ services:
         ports:
             - '4503:4503'
             - '8001:8001'
+        environment:  
+           RUNMODE: 'local'
         volumes:
             - 'aem632-publish:/crx-quickstart/repository'
             - '/aem632-publish/logs:/crx-quickstart/logs'
