@@ -8,11 +8,6 @@ services:
         volumes:
             - 'aem632-author:/crx-quickstart/repository'
             - '/aem632-author/logs:/crx-quickstart/logs'
-        deploy:
-            mode: replicated
-            replicas: 1
-            placement:
-                constraints: [node.role == worker]
         networks:
             - network
     aem632-publish:
@@ -23,11 +18,6 @@ services:
         volumes:
             - 'aem632-publish:/crx-quickstart/repository'
             - '/aem632-publish/logs:/crx-quickstart/logs'
-        deploy:
-            mode: replicated
-            replicas: 1
-            placement:
-                constraints: [node.role == worker]
         networks:
             - network
     apache-dispatcher:
@@ -41,18 +31,14 @@ services:
             AEM_HOST: 'aem632-publish'
             AEM_PORT: '4503'
         volumes:
+            - 'aem-dispatcher:/etc/httpd/dispatcher_cache'
             - '/aem-dispatcher/logs:/etc/httpd/logs'
-            - '/aem-dispatcher/dispatcher_cache:/etc/httpd/dispatcher_cache'
-         deploy:
-            mode: replicated
-            replicas: 1
-            placement:
-                constraints: [node.role == worker]
         networks:
             - network 
 volumes:
     aem632-author:
     aem632-publish:
+    aem-dispatcher:
 networks:
     network:
         driver: overlay
