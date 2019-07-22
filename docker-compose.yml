@@ -9,10 +9,10 @@ services:
             - 'aem632-author:/crx-quickstart/repository'
             - '/aem632-author/logs:/crx-quickstart/logs'
         deploy:
-            replicas: 2
+            mode: replicated
+            replicas: 1
             placement:
-                constraints: 
-                    - node.role == worker
+                constraints: [node.role == worker]
         networks:
             - network
     aem632-publish:
@@ -24,10 +24,10 @@ services:
             - 'aem632-publish:/crx-quickstart/repository'
             - '/aem632-publish/logs:/crx-quickstart/logs'
         deploy:
+            mode: replicated
             replicas: 1
             placement:
-                constraints: 
-                    - node.role == worker
+                constraints: [node.role == worker]
         networks:
             - network
     apache-dispatcher:
@@ -43,11 +43,11 @@ services:
         volumes:
             - '/aem-dispatcher/logs:/etc/httpd/logs'
             - '/aem-dispatcher/dispatcher_cache:/etc/httpd/dispatcher_cache'
-        deploy:
+         deploy:
+            mode: replicated
             replicas: 1
             placement:
-                constraints: 
-                    - node.role == worker
+                constraints: [node.role == worker]
         networks:
             - network 
 volumes:
