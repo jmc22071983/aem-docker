@@ -9,7 +9,7 @@ services:
             - 'aem632-author:/crx-quickstart/repository'
             - '/aem632-author/logs:/crx-quickstart/logs'
         deploy:
-            replicas: 1
+            replicas: 2
             placement:
                 constraints: 
                     - node.role == worker
