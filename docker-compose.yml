@@ -9,6 +9,7 @@ services:
            RUNMODE: 'local'
         volumes:
             - 'aem632-author:/crx-quickstart/repository'
+            - 'aem632-author:/crx-quickstart/logs'
         deploy:
             replicas: 1
             placement:
@@ -25,6 +26,7 @@ services:
            RUNMODE: 'local'
         volumes:
             - 'aem632-publish:/crx-quickstart/repository'
+            - 'aem632-publish:/crx-quickstart/logs'
         deploy:
             replicas: 1
             placement:
@@ -44,6 +46,7 @@ services:
             AEM_PORT: '4503'
         volumes:
             - 'aem-dispatcher:/etc/httpd/dispatcher_cache'
+            - 'aem-dispatcher:/logs:/etc/httpd/logs'
         deploy:
             replicas: 1
             placement:
