@@ -1,7 +1,7 @@
 version: '3'
 services:
     aem632-publish:
-        image: jmc22071983/aem632-publish:0.0.3-SNAPSHOT
+        image: jmc22071983/aem632-publish:0.0.5-SNAPSHOT
         ports:
             - '4503:4503'
             - '8001:8001'
@@ -9,6 +9,12 @@ services:
            RUNMODE: 'local'
         volumes:
             - 'aem632-publish:/crx-quickstart/repository'
+            - 'aem632-publish:/crx-quickstart/logs'
+        deploy:
+            replicas: 1
+            placement:
+                constraints: 
+                    - node.hostname == default
         networks:
             - network
     apache-dispatcher:
@@ -23,6 +29,12 @@ services:
             AEM_PORT: '4503'
         volumes:
             - 'aem-dispatcher:/etc/httpd/dispatcher_cache'
+            - 'aem-dispatcher:/logs:/etc/httpd/logs'
+        deploy:
+            replicas: 1
+            placement:
+                constraints: 
+                    - node.hostname == default
         networks:
             - network 
 volumes:
