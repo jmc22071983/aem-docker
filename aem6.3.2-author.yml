@@ -9,7 +9,7 @@ services:
            RUNMODE: 'local'
         volumes:
             - 'aem632-author:/crx-quickstart/repository'
-            - '/aem632-author/logs:/crx-quickstart/logs'
+            - 'aem632-author/logs:/crx-quickstart/logs'
         networks:
             - network
 volumes:
