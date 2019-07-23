@@ -9,7 +9,6 @@ services:
            RUNMODE: 'local'
         volumes:
             - 'aem632-publish:/crx-quickstart/repository'
-            - '/aem632-publish/logs:/crx-quickstart/logs'
         networks:
             - network
     apache-dispatcher:
@@ -24,7 +23,6 @@ services:
             AEM_PORT: '4503'
         volumes:
             - 'aem-dispatcher:/etc/httpd/dispatcher_cache'
-            - '/aem-dispatcher/logs:/etc/httpd/logs'
         networks:
             - network 
 volumes:
