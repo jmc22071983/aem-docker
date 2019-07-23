@@ -6,7 +6,7 @@ services:
             - '4502:4502'
             - '8000:8000'
         environment:  
-           RUNMODE: 'local'
+           RUNMODE: "${RUNMODE}"
         volumes:
             - 'aem632-author:/crx-quickstart/repository'
             - 'aem632-author:/logs:/crx-quickstart/logs'
