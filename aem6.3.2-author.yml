@@ -1,7 +1,7 @@
 version: '3'
 services:
     aem632-author:
-        image: jmc22071983/aem632-author:0.0.6-SNAPSHOT
+        image: jmc22071983/aem632-author:0.0.9-SNAPSHOT
         ports:
             - '4502:4502'
             - '8000:8000'
