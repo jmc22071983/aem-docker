@@ -1,0 +1,24 @@
+version: '3'
+services:
+    aem632-author:
+        image: jmc22071983/aem632-author:0.0.9-SNAPSHOT
+        ports:
+            - '4502:4502'
+            - '8000:8000'
+        environment:  
+           RUNMODE: 'local'
+        volumes:
+            - 'aem632-author:/crx-quickstart/repository'
+            - 'aem632-author:/crx-quickstart/logs'
+        deploy:
+            replicas: 1
+            placement:
+                constraints: 
+                    - node.hostname == default
+        networks:
+            - network
+volumes:
+    aem632-author:
+networks:
+    network:
+        driver: overlay
