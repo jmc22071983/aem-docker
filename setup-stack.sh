@@ -9,3 +9,4 @@ echo "Init Docker Swarm: Dafault machine will be the MANAGER: "
 eval $(docker-machine env default)
 docker swarm init --advertise-addr $(docker-machine ip default):2377
 echo "swarn finished";
+eval $(docker-machine env}
