@@ -14,6 +14,11 @@ services:
             - network
 volumes:
     aem632-author:
+        driver: local
+          driver_opts:
+            type: none
+            o: bind
+            device: /home/user/test
 networks:
     network:
         driver: overlay
