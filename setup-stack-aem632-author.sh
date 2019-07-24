@@ -8,3 +8,5 @@ curl -o author.yml  https://raw.githubusercontent.com/jmc22071983/aem-docker/mas
 echo "Deploying stack swarm aem ...";
 env RUNMODE=$1 docker stack deploy -c author.yml aem632-stack
 echo "Wait..., have a coffee until all services be running, mejor vete a dar un paseo..."
+echo "Type: * docker service ls * to see the services"
+echo "Type: * docker ps * to see the containers"

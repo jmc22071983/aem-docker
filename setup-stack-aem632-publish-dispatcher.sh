@@ -8,3 +8,5 @@ curl -o publish-dispatcher.yml  https://raw.githubusercontent.com/jmc22071983/ae
 echo "Deploying stack swarm aem ...";
 env RUNMODE=$1 docker stack deploy -c publish-dispatcher.yml aem632-stack
 echo "Wait..., have a coffee until all services be running, mejor vete a dar un paseo..."
+echo "Type: * docker service ls * to see the services"
+echo "Type: * docker ps * to see the containers"
