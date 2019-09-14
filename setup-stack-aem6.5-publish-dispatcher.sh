@@ -1,6 +1,6 @@
 #!/bin/sh
 echo "******************************************************************************************** "
-echo "*********** AEM 6.3.2 SWARM STACK: AUTHOR, PUBLISH AND DISPATCHER INSTANCES **************** "
+echo "*********** AEM 6.5 SWARM STACK: AUTHOR, PUBLISH AND DISPATCHER INSTANCES **************** "
 echo "******************************************************************************************** "
 env docker swarm init
 echo "Downloading docker-compose.yml from github ...";
