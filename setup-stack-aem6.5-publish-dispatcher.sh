@@ -3,8 +3,6 @@ echo "**************************************************************************
 echo "*********** AEM 6.5 SWARM STACK: AUTHOR, PUBLISH AND DISPATCHER INSTANCES **************** "
 echo "******************************************************************************************** "
 env docker swarm init
-echo "Creating docker network with overlay driver...";
-env docker network create -d overlay --attachable docker-aem
 echo "Downloading docker-compose.yml from github ...";
 curl -o aem6.5-complete.yml  https://raw.githubusercontent.com/jmc22071983/aem-docker/master/aem6.5-author-publish-dispatcher.yml
 read -p "Enter the AEM runmode: " run_mode
