@@ -59,4 +59,3 @@ volumes:
 networks:
     docker-aem:
         driver: overlay
-        attachable: true
