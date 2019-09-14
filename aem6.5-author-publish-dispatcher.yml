@@ -8,7 +8,7 @@ services:
         environment:  
            RUNMODE: "${RUNMODE}"
         volumes:
-            - 'aem6.5-author-volume:/crx-quickstart/logs'
+            - 'aem65-author-volume:/crx-quickstart/logs'
         deploy:
             replicas: 1
             placement:
@@ -24,7 +24,7 @@ services:
         environment:  
            RUNMODE: "${RUNMODE}"
         volumes:
-            - 'aem6.5-publish-volume:/crx-quickstart/logs'
+            - 'aem65-publish-volume:/crx-quickstart/logs'
         deploy:
             replicas: 1
             placement:
@@ -53,8 +53,8 @@ services:
         networks:
             - network
 volumes:
-    aem6.5-author-volume:
-    aem6.5-publish-volume:
+    aem65-author-volume:
+    aem65-publish-volume:
     aem-dispatcher-volume:
 networks:
     network:
