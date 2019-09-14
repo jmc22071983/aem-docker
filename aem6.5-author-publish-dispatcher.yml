@@ -15,7 +15,7 @@ services:
                 constraints: 
                     - node.hostname == docker-desktop
         networks:
-            - network
+            - docker-aem
     aem6.5-publish:
         image: jmc22071983/aem6.5-publish:0.0.1
         ports:
@@ -31,7 +31,7 @@ services:
                 constraints: 
                     - node.hostname == docker-desktop
         networks:
-            - network
+            - docker-aem
     apache-dispatcher:
         image: jmc22071983/dispatcher:0.0.1
         depends_on:
@@ -51,11 +51,11 @@ services:
                 constraints: 
                     - node.hostname == docker-desktop
         networks:
-            - network 
+            - docker-aem 
 volumes:
     aem6.5-author-volume:
     aem6.5-publish-volume:
     aem-dispatcher-volume:
 networks:
-    network:
+    docker-aem:
         driver: overlay
