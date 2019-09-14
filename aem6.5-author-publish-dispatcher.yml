@@ -1,4 +1,4 @@
-version: '3'
+version: '3.2'
 services:
     aem6.5-author:
         image: jmc22071983/aem6.5-author:0.0.1
@@ -59,3 +59,4 @@ volumes:
 networks:
     docker-aem-net:
         driver: overlay
+        attachable: true
