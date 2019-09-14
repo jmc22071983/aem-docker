@@ -40,7 +40,7 @@ services:
             - '80:80'
             - '443:443'
         environment:  
-            AEM_HOST: 'aem6.5-publish'
+            AEM_HOST: 'aem65-publish'
             AEM_PORT: '4503'
         volumes:
             - 'aem-dispatcher-volume:/etc/httpd/dispatcher_cache'
