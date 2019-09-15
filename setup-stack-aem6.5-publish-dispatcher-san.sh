@@ -14,6 +14,6 @@ read -p "Enter the run mode you want to boot the AEM instances (For example: aut
 echo "Deploying stack swarm AEM6.5 ...";
 env RUNMODE=$run_mode docker stack deploy -c aem65-complete-san.yml aem65-stack-san
 echo "******************************************************************************************** ";
-echo "Tip docker service ls to see the services";
-echo "Tip 'docker ps' to see the docker containes";
+echo "Tip 'docker service ls' to see the services";
+echo "Tip 'docker ps' to see the docker containers";
 echo "********************************************************************************************";
