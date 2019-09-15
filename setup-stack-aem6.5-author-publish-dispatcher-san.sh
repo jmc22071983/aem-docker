@@ -10,8 +10,8 @@ echo "Creating the node manager SWARM...";
 env docker swarm init
 echo "Downloading compose: aem65-complete-san.yml from github ...";
 curl -o aem65-complete-san.yml  https://raw.githubusercontent.com/jmc22071983/aem-docker/master/aem6.5-author-publish-dispatcher-san.yml
-read -p "Enter the run mode you want to boot the AEM author instance (For example: author, local, or empty for defautl config...): " run_mode_auth
-read -p "Enter the run mode you want to boot the AEM publish instance (For example: publish, stg, or empty for defautl config ...): " run_mode_pub
+read -p "Enter the run mode you want to boot the AEM author instance (For example: author, local, or empty for default config...): " run_mode_auth
+read -p "Enter the run mode you want to boot the AEM publish instance (For example: publish, stg, or empty for default config ...): " run_mode_pub
 echo "Deploying stack swarm AEM6.5 ...";
 env RUNMODEAUT=${run_mode_auth:-author} RUNMODEPUB=${run_mode_pub:-publish} docker stack deploy -c aem65-complete-san.yml aem65-stack-san
 echo "******************************************************************************************** ";
