@@ -19,3 +19,7 @@ echo "Tip 'docker service ls' to see the services";
 echo "Tip 'docker ps' to see the docker containers";
 echo "For more info go to 'https://docs.docker.com/engine/swarm/'";
 echo "********************************************************************************************";
+echo "You can see the author logs in C:/aem65-author-volume";
+echo "You can see the publish logs in C:/aem65-publish-volume";
+echo "You can see the dispatcher logs and cached files in C:/aem-dispatcher-volume";
+echo "********************************************************************************************";
