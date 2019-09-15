@@ -1,6 +1,6 @@
 #!/bin/sh
 echo "******************************************************************************************** "
-echo "*********** AEM 6.5 SWARM STACK: AUTHOR, PUBLISH AND DISPATCHER INSTANCES **************** "
+echo "*********** AEM 6.5 SWARM STACK: AUTHOR, PUBLISH AND DISPATCHER INSTANCES ****************** "
 echo "******************************************************************************************** "
 echo "Creating directories 'aem-dispatcher-volume, aem65-author-volume and aem65-publish-volume in C:/ ' to persist AEM logs and Dispatcher cache files..."
 env mkdir C:/aem-dispatcher-volume
