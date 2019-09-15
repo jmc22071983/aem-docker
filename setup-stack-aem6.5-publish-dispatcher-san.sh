@@ -2,10 +2,11 @@
 echo "******************************************************************************************** "
 echo "*********** AEM 6.5 SAN SWARM STACK: AUTHOR, PUBLISH AND DISPATCHER INSTANCES **************** "
 echo "******************************************************************************************** "
-echo "Creating volume directories..."
+echo "Creating directories to persist AEM logs and cache Dispatcher files"
 env mkdir C:/aem-dispatcher-volume
 env mkdir C:/aem65-author-volume
 env mkdir C:/aem65-publish-volume
+echo "Creating the node manager SWARM...";
 env docker swarm init
 echo "Downloading compose: aem65-complete-san.yml from github ...";
 curl -o aem65-complete-san.yml  https://raw.githubusercontent.com/jmc22071983/aem-docker/master/aem6.5-author-publish-dispatcher-san.yml
