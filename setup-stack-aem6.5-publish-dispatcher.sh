@@ -16,4 +16,5 @@ env RUNMODE=$run_mode docker stack deploy -c aem65-complete.yml aem65-stack
 echo "******************************************************************************************** ";
 echo "Tip 'docker service ls' to see the services";
 echo "Tip 'docker ps' to see the docker containers";
+echo "For more info go to 'https://docs.docker.com/engine/swarm/'";
 echo "********************************************************************************************";
