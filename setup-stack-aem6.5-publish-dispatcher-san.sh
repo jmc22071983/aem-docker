@@ -7,7 +7,7 @@ env mkdir C:/aem-dispatcher-volume
 env mkdir C:/aem65-author-volume
 env mkdir C:/aem65-publish-volume
 env docker swarm init
-echo "Downloading docker-compose.yml from github ...";
+echo "Downloading compose: aem65-complete-san.yml from github ...";
 curl -o aem65-complete-san.yml  https://raw.githubusercontent.com/jmc22071983/aem-docker/master/aem6.5-author-publish-dispatcher-san.yml
 read -p "Enter the AEM runmode: " run_mode
 echo "Deploying stack swarm aem ...";
