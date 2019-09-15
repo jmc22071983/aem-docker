@@ -2,7 +2,7 @@
 echo "******************************************************************************************** "
 echo "*********** AEM 6.5 SWARM STACK: AUTHOR, PUBLISH AND DISPATCHER INSTANCES **************** "
 echo "******************************************************************************************** "
-echo "Creating directories to persist AEM logs and Dispatcher cache files"
+echo "Creating directories to persist AEM logs and Dispatcher cache files..."
 env mkdir C:/aem-dispatcher-volume
 env mkdir C:/aem65-author-volume
 env mkdir C:/aem65-publish-volume
