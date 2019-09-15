@@ -1,6 +1,6 @@
 #!/bin/sh
 echo "******************************************************************************************** "
-echo "*********** AEM 6.5 SWARM STACK: AUTHOR, PUBLISH AND DISPATCHER INSTANCES **************** "
+echo "*********** AEM 6.5 SAN SWARM STACK: AUTHOR, PUBLISH AND DISPATCHER INSTANCES **************** "
 echo "******************************************************************************************** "
 echo "Creating volume directories..."
 env mkdir C:/aem-dispatcher-volume
