@@ -6,7 +6,7 @@ services:
             - '4502:4502'
             - '8000:8000'
         environment:  
-           RUNMODE: "${RUNMODE}"
+           RUNMODE: "${RUNMODEAUT}"
         volumes:
             - 'C:/aem65-author-volume:/crx-quickstart/logs'
         deploy:
@@ -22,7 +22,7 @@ services:
             - '4503:4503'
             - '8001:8001'
         environment:  
-           RUNMODE: "${RUNMODE}"
+           RUNMODE: "${RUNMODEPUB}"
         volumes:
             - 'C:/aem65-publish-volume:/crx-quickstart/logs'
         deploy:
