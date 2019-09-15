@@ -2,7 +2,7 @@
 echo "******************************************************************************************** "
 echo "*********** AEM 6.5 SAN SWARM STACK: AUTHOR, PUBLISH AND DISPATCHER INSTANCES **************** "
 echo "******************************************************************************************** "
-echo "Creating directories to persist AEM logs and cache Dispatcher files"
+echo "Creating directories to persist AEM logs and Dispatcher cache files"
 env mkdir C:/aem-dispatcher-volume
 env mkdir C:/aem65-author-volume
 env mkdir C:/aem65-publish-volume
@@ -16,4 +16,5 @@ env RUNMODE=$run_mode docker stack deploy -c aem65-complete-san.yml aem65-stack-
 echo "******************************************************************************************** ";
 echo "Tip 'docker service ls' to see the services";
 echo "Tip 'docker ps' to see the docker containers";
+echo "For more info go to 'https://docs.docker.com/engine/swarm/'";
 echo "********************************************************************************************";
