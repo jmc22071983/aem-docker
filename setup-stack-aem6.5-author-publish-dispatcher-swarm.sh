@@ -2,12 +2,13 @@
 echo "******************************************************************************************** "
 echo "*********** AEM 6.5 SWARM STACK: AUTHOR, PUBLISH AND DISPATCHER INSTANCES ****************** "
 echo "******************************************************************************************** "
-echo "Creating directories 'aem-dispatcher-volume, aem65-author-volume and aem65-publish-volume in C:/ ' to persist AEM logs and Dispatcher cache files..."
-env mkdir C:/aem-dispatcher-volume
-env mkdir C:/aem65-author-volume
-env mkdir C:/aem65-publish-volume
 echo "Creating the node manager SWARM...";
 env docker swarm init
+echo "Creating directories 'aem-dispatcher-volume, aem65-author-volume, aem65-publish-volume and aem65-author-repository' in root path / to persist AEM logs and Dispatcher cache files and AEM author repository"
+mkdir /aem-dispatcher-volume
+mkdir /aem65-author-volume
+mkdir /aem65-publish-volume
+mkdir /aem65-author-repository
 echo "Downloading compose: aem65-complete.yml from github ...";
 curl -o aem65-complete.yml  https://raw.githubusercontent.com/jmc22071983/aem-docker/master/aem6.5-author-publish-dispatcher.yml
 read -p "Enter the run mode you want to boot the AEM author instance (For example: author, local, or empty for default config...): " run_mode_auth
@@ -28,9 +29,10 @@ echo "This process can take at least 20 minutes depending on your internet speed
 echo "Wait until the deployment of the AEM stack is finished.";
 echo "The process will be finished when you see 1/1 replicas for each container. Type 'docker service ls' to check it.";
 echo "When the deployment is complete: ";
-echo "	type 'localhost:4502' in your browser to see AEM author instance.";
-echo "	type 'localhost:4503' in your browser to see AEM publish instance.";
-echo "	type 'localhost' in your browser to see Apache Dispatcher instance.";
+echo "	Open a shell script and tip 'docker machine ls' to see your manager machine ip. This IP is your 'host.docker' .";
+echo "	type 'host.docker:4502' in your browser to see AEM author instance.";
+echo "	type 'host.docker:4503' in your browser to see AEM publish instance.";
+echo "	type 'host.docker' in your browser to see Apache Dispatcher instance.";
 echo "********************************************************************************************";
 echo "If your environment is slow, improve the hardware assigned to docker if is possible.";
 echo "Otherwise you can remove any of the services with 'docker service rm <id_service>'.";
