@@ -14,7 +14,7 @@ services:
             replicas: 1
             placement:
                 constraints: 
-                    - node.hostname == docker-desktop
+                    - node.hostname == manager
         networks:
             - network
     aem65-publish:
@@ -30,7 +30,7 @@ services:
             replicas: 1
             placement:
                 constraints: 
-                    - node.hostname == docker-desktop
+                    - node.hostname == manager
         networks:
             - network
     apache-dispatcher:
@@ -50,7 +50,7 @@ services:
             replicas: 1
             placement:
                 constraints: 
-                    - node.hostname == docker-desktop
+                    - node.hostname == manager
         networks:
             - network
 volumes:
