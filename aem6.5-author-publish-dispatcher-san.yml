@@ -55,23 +55,17 @@ services:
             - network
 volumes:
     aem65-author-volume:
-        driver: local
-            driver_opts:
-            type: none
-            device: /home/docker
-            o: bind
+        driver: local-persist
+        driver_opts:
+            mountpoint: /home/docker
     aem65-publish-volume:
-        driver: local
+        driver: local-persist
         driver_opts:
-            type: none
-            device: /home/docker
-            o: bind
+            mountpoint: /home/docker
     aem-dispatcher-volume:
-        driver: local
+        driver: local-persist
         driver_opts:
-            type: none
-            device: /home/docker
-            o: bind
+            mountpoint: /home/docker
 networks:
     network:
         driver: overlay
