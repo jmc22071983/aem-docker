@@ -9,7 +9,7 @@ services:
            RUNMODE: "${RUNMODEAUT}"
         volumes:
             - '/aem65-author-volume:/crx-quickstart/logs'
-            - '/aem65-author-volume:/crx-quickstart/repository'
+            - '/aem65-author-repository:/crx-quickstart/repository'
         deploy:
             replicas: 1
             placement:
@@ -55,23 +55,9 @@ services:
             - network
 volumes:
     aem65-author-volume:
-        driver: local
-        driver_opts:
-            type: none
-            o: bind
-            device: /home/user/test
     aem65-publish-volume:
-        driver: local
-        driver_opts:
-            type: none
-            o: bind
-            device: /home/user/test
     aem-dispatcher-volume:
-        driver: local
-        driver_opts:
-            type: none
-            o: bind
-            device: /home/user/test
+    aem65-author-repository:
 networks:
     network:
         driver: overlay

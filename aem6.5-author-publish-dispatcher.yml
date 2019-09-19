@@ -8,12 +8,13 @@ services:
         environment:  
            RUNMODE: "${RUNMODEAUT}"
         volumes:
-            - 'C:/aem65-author-volume:/crx-quickstart/logs'
+            - '/aem65-author-volume:/crx-quickstart/logs'
+            - 'aem65-author-repository:/crx-quickstart/repository'
         deploy:
             replicas: 1
             placement:
                 constraints: 
-                    - node.hostname == docker-desktop
+                    - node.hostname == manager
         networks:
             - network
     aem65-publish:
@@ -24,12 +25,12 @@ services:
         environment:  
            RUNMODE: "${RUNMODEPUB}"
         volumes:
-            - 'C:/aem65-publish-volume:/crx-quickstart/logs'
+            - '/aem65-publish-volume:/crx-quickstart/logs'
         deploy:
             replicas: 1
             placement:
                 constraints: 
-                    - node.hostname == docker-desktop
+                    - node.hostname == manager
         networks:
             - network
     apache-dispatcher:
@@ -43,19 +44,20 @@ services:
             AEM_HOST: 'aem65-publish'
             AEM_PORT: '4503'
         volumes:
-            - 'C:/aem-dispatcher-volume:/etc/httpd/dispatcher_cache'
-            - 'C:/aem-dispatcher-volume:/etc/httpd/logs'
+            - '/aem-dispatcher-volume:/etc/httpd/dispatcher_cache'
+            - '/aem-dispatcher-volume:/etc/httpd/logs'
         deploy:
             replicas: 1
             placement:
                 constraints: 
-                    - node.hostname == docker-desktop
+                    - node.hostname == manager
         networks:
             - network
 volumes:
     aem65-author-volume:
     aem65-publish-volume:
     aem-dispatcher-volume:
+    aem65-author-repository:
 networks:
     network:
         driver: overlay
