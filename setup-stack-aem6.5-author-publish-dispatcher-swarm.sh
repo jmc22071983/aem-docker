@@ -8,7 +8,6 @@ echo "Creating directories 'aem-dispatcher-volume, aem65-author-volume, aem65-pu
 mkdir /aem-dispatcher-volume
 mkdir /aem65-author-volume
 mkdir /aem65-publish-volume
-mkdir /aem65-author-repository
 echo "Downloading compose: aem65-complete.yml from github ...";
 curl -o aem65-complete.yml  https://raw.githubusercontent.com/jmc22071983/aem-docker/master/aem6.5-author-publish-dispatcher.yml
 read -p "Enter the run mode you want to boot the AEM author instance (For example: author, local, or empty for default config...): " run_mode_auth
