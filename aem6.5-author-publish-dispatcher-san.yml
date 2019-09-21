@@ -9,7 +9,7 @@ services:
            RUNMODE: "${RUNMODEAUT}"
         volumes:
             - '/mnt/sda1/aem/author:/crx-quickstart/logs'
-            - '/mnt/sda1/aem/author:/crx-quickstart/repository'
+            - 'author-repository:/crx-quickstart/repository'
         deploy:
             replicas: 1
             placement:
@@ -26,7 +26,7 @@ services:
            RUNMODE: "${RUNMODEPUB}"
         volumes:
             - '/mnt/sda1/aem/publish:/crx-quickstart/logs'
-            - '/mnt/sda1/aem/publish:/crx-quickstart/repository'
+            - 'publish-repository:/crx-quickstart/repository'
         deploy:
             replicas: 1
             placement:
@@ -56,7 +56,9 @@ services:
             - network
 volumes:
     author:
+    author-repository:
     publish:
+    publish-repository:
     dispatcher:
 networks:
     network:
