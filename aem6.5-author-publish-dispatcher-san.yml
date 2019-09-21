@@ -8,8 +8,8 @@ services:
         environment:  
            RUNMODE: "${RUNMODEAUT}"
         volumes:
-            - '/mnt/sda1/aem65-author-volume:/crx-quickstart/logs'
-            - 'aem65-author-repository-san:/crx-quickstart/repository'
+            - '/mnt/sda1/aem/author:/crx-quickstart/logs'
+            - '/mnt/sda1/aem/author:/crx-quickstart/repository'
         deploy:
             replicas: 1
             placement:
@@ -25,7 +25,8 @@ services:
         environment:  
            RUNMODE: "${RUNMODEPUB}"
         volumes:
-            - '/mnt/sda1/aem65-publish-volume:/crx-quickstart/logs'
+            - '/mnt/sda1/aem/publish:/crx-quickstart/logs'
+            - '/mnt/sda1/aem/publish:/crx-quickstart/repository'
         deploy:
             replicas: 1
             placement:
@@ -44,8 +45,8 @@ services:
             AEM_HOST: 'aem65-publish'
             AEM_PORT: '4503'
         volumes:
-            - '/mnt/sda1/aem-dispatcher-volume:/etc/httpd/dispatcher_cache'
-            - '/mnt/sda1/aem-dispatcher-volume:/etc/httpd/logs'
+            - '/mnt/sda1/aem/dispatcher:/etc/httpd/dispatcher_cache'
+            - '/mnt/sda1/aem/dispatcher:/etc/httpd/logs'
         deploy:
             replicas: 1
             placement:
@@ -54,10 +55,9 @@ services:
         networks:
             - network
 volumes:
-    aem65-author-volume:
-    aem65-publish-volume:
-    aem-dispatcher-volume:
-    aem65-author-repository-san:
+    author:
+    publish:
+    dispatcher:
 networks:
     network:
         driver: overlay

@@ -4,10 +4,11 @@ echo "*********** AEM 6.5 SWARM STACK: AUTHOR, PUBLISH AND DISPATCHER INSTANCES 
 echo "******************************************************************************************** "
 echo "Creating the node manager SWARM...";
 env docker swarm init
-echo "Creating directories 'aem-dispatcher-volume, aem65-author-volume, aem65-publish-volume and aem65-author-repository' in root path / to persist AEM logs and Dispatcher cache files and AEM author repository"
-mkdir /mnt/sda1/aem-dispatcher-volume
-mkdir /mnt/sda1/aem65-author-volume
-mkdir /mnt/sda1/aem65-publish-volume
+echo "Creating directories 'dispatcher, author and publish  in /mnt/sda1/aem to persist AEM logs and Dispatcher cache files and AEM author repository"
+mkdir /mnt/sda1/aem
+mkdir /mnt/sda1/aem/dispatcher
+mkdir /mnt/sda1/aem/author
+mkdir /mnt/sda1/aem/publish
 echo "Downloading compose: aem65-complete-san.yml from github ...";
 curl -o aem65-complete-san.yml  https://raw.githubusercontent.com/jmc22071983/aem-docker/master/aem6.5-author-publish-dispatcher-san.yml
 read -p "Enter the run mode you want to boot the AEM author instance (For example: author, local, or empty for default config...): " run_mode_auth
