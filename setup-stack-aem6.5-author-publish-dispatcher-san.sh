@@ -4,7 +4,7 @@ echo "*********** AEM 6.5 SWARM STACK: AUTHOR, PUBLISH AND DISPATCHER INSTANCES 
 echo "******************************************************************************************** "
 echo "Creating the node manager SWARM...";
 env docker swarm init
-echo "Creating directories 'dispatcher, author and publish  in /mnt/sda1/aem to persist AEM logs and Dispatcher cache files and AEM author repository"
+echo "Creating directories 'dispatcher, author and publish  in /mnt/sda1/aem to persist AEM author and publish logs and Dispatcher cache files"
 mkdir /mnt/sda1/aem
 mkdir /mnt/sda1/aem/dispatcher
 mkdir /mnt/sda1/aem/author
