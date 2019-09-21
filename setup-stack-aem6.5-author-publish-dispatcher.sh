@@ -10,7 +10,7 @@ mkdir /mnt/sda1/aem/dispatcher
 mkdir /mnt/sda1/aem/author
 mkdir /mnt/sda1/aem/publish
 echo "Downloading compose: aem65-complete-san.yml from github ...";
-curl -o aem65-complete.yml  https://raw.githubusercontent.com/jmc22071983/aem-docker/master/aem6.5-author-publish-dispatcher-san.yml
+curl -o aem65-complete.yml  https://raw.githubusercontent.com/jmc22071983/aem-docker/master/aem6.5-author-publish-dispatcher.yml
 read -p "Enter the run mode you want to boot the AEM author instance (For example: author, local, or empty for default config...): " run_mode_auth
 read -p "Enter the run mode you want to boot the AEM publish instance (For example: publish, stg, or empty for default config ...): " run_mode_pub
 echo "Deploying stack swarm AEM6.5 ...";
