@@ -63,17 +63,6 @@ services:
         volumes:
           - /var/run/docker.sock:/var/run/docker.sock
           - portainer_data:/data
-    sematext-agent:
-      image: 'sematext/sematext-agent-docker:latest'
-      environment:
-        - LOGSENE_TOKEN=YOUR_LOGSENE_TOKEN 
-        - SPM_TOKEN=YOU_SPM_TOKEN
-      cap_add:
-        - SYS_ADMIN
-      restart: always
-      volumes:
-        - '/var/run/docker.sock:/var/run/docker.sock'
-        - '/:/rootfs:ro'
 volumes:
     author:
     author-repository:
