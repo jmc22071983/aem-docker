@@ -54,12 +54,23 @@ services:
                     - node.hostname == manager
         networks:
             - network
+    portainer:
+        image: portainer/portainer
+        command: -H unix:///var/run/docker.sock
+        restart: always
+        ports:
+          - 9000:9000
+          - 9001:9001
+        volumes:
+          - /var/run/docker.sock:/var/run/docker.sock
+          - portainer_data:/data
 volumes:
     author:
     author-repository:
     publish:
     publish-repository:
     dispatcher:
+    portainer_data:
 networks:
     network:
         driver: overlay
