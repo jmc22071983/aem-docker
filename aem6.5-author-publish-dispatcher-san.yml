@@ -56,8 +56,7 @@ services:
             - network
     portainer:
         image: portainer/portainer
-        command: -H unix:///var/run/docker.sock
-        restart: always
+        command: -H unix:///var/run/docker.sock    
         ports:
           - 9000:9000
           - 9001:9001
