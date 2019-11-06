@@ -5,12 +5,13 @@ echo "**************************************************************************
 echo "Creating the node manager SWARM...";
 env docker swarm init
 echo "Creating directories 'dispatcher, author and publish  in /mnt/sda1/aem to persist AEM author and publish logs and Dispatcher cache files"
-mkdir /mnt/sda1/aem
-mkdir /mnt/sda1/aem/dispatcher
-mkdir /mnt/sda1/aem/author
-mkdir /mnt/sda1/aem/publish
+mkdir C:/AEM
+mkdir C:/AEM/Docker/
+mkdir C:/AEM/Docker/author
+mkdir C:/AEM/Docker/publish
+mkdir C:/AEM/Docker/dispatcher
 echo "Downloading compose: aem65-complete-san.yml from github ...";
-curl -o aem65-complete.yml  https://raw.githubusercontent.com/jmc22071983/aem-docker/master/aem6.5-author-publish-dispatcher.yml
+curl -o aem65-complete.yml  https://raw.githubusercontent.com/jmc22071983/aem-docker/master/aem6.5-author-publish-dispatcher-win.yml
 read -p "Enter the run mode you want to boot the AEM author instance (For example: author, local, or empty for default config...): " run_mode_auth
 read -p "Enter the run mode you want to boot the AEM publish instance (For example: publish, stg, or empty for default config ...): " run_mode_pub
 echo "Deploying stack swarm AEM6.5 ...";
