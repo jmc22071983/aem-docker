@@ -12,9 +12,6 @@ services:
             - 'author-repository:/crx-quickstart/repository'
         deploy:
             replicas: 1
-            placement:
-                constraints: 
-                    - node.hostname == manager
         networks:
             - network
     aem65-publish:
@@ -29,9 +26,6 @@ services:
             - 'publish-repository:/crx-quickstart/repository'
         deploy:
             replicas: 1
-            placement:
-                constraints: 
-                    - node.hostname == manager
         networks:
             - network
     apache-dispatcher:
@@ -49,9 +43,6 @@ services:
             - 'C:/AEM/Docker/dispatcher:/etc/httpd/logs'
         deploy:
             replicas: 1
-            placement:
-                constraints: 
-                    - node.hostname == manager
         networks:
             - network
     portainer:
